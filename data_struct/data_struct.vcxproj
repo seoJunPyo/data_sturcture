@@ -127,15 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Caculator.h" />
     <ClInclude Include="CircleDoublyLInkedLIst.h" />
     <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="LinkledLIst.h" />
+    <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Caculator.c" />
     <ClCompile Include="CircleDoublyLInkedLIst.c" />
     <ClCompile Include="DoublyLinkedList.c" />
     <ClCompile Include="LInkedLIst.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Stack.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

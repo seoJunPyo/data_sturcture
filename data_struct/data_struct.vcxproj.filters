@@ -24,6 +24,12 @@
     <ClInclude Include="CircleDoublyLInkedLIst.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Stack.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Caculator.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LInkedLIst.c">
@@ -36,6 +42,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CircleDoublyLInkedLIst.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Stack.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Caculator.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
