@@ -133,6 +133,7 @@
     <ClInclude Include="LinkledLIst.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
+    <ClInclude Include="Tree.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Caculator.c" />

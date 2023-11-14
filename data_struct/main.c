@@ -3,6 +3,7 @@
 #include "CircleDoublyLInkedLIst.h"
 #include "Caculator.h"
 #include "Queue.h"
+#include "Tree.h"
 
 void Test_SLL(void);
 void Test_DLL(void);
@@ -12,10 +13,12 @@ void Test_LLS(void);
 void Test_Calcular(void);
 void Test_CQ(void);
 void Test_LQ(void);
+void Test_LCRS_Tree(void);
+void Test_SBT(void);
 
 int main(void)
 {
-	Test_LQ();
+	Test_SBT();
 	return 0;
 }
 
@@ -325,4 +328,69 @@ void Test_LQ(void)
 	}
 
 	LQ_Destroy_Queue(Queue);
+}
+
+void Test_LCRS_Tree(void)
+{
+	LCRS_Node* Root = LCRS_Create_Node('A');
+	LCRS_Node* B = LCRS_Create_Node('B');
+	LCRS_Node* C = LCRS_Create_Node('C');
+	LCRS_Node* D = LCRS_Create_Node('D');
+	LCRS_Node* E = LCRS_Create_Node('E');
+	LCRS_Node* F = LCRS_Create_Node('F');
+	LCRS_Node* G = LCRS_Create_Node('G');
+	LCRS_Node* H = LCRS_Create_Node('H');
+	LCRS_Node* I = LCRS_Create_Node('I');
+	LCRS_Node* J = LCRS_Create_Node('J');
+	LCRS_Node* K = LCRS_Create_Node('K');
+
+	LCRS_Add_Child_Node(Root, B);
+	LCRS_Add_Child_Node(B, C);
+	LCRS_Add_Child_Node(B, D);
+	LCRS_Add_Child_Node(D, E);
+	LCRS_Add_Child_Node(D, F);
+
+	LCRS_Add_Child_Node(Root, G);
+	LCRS_Add_Child_Node(G, H);
+
+	LCRS_Add_Child_Node(Root, I);
+	LCRS_Add_Child_Node(I, J);
+	LCRS_Add_Child_Node(J, K);
+
+	LCRS_Print_Tree(Root, 0);
+
+	LCRS_Destroy_Tree(Root);
+}
+
+void Test_SBT(void)
+{
+	SBT_Node* A = SBT_Create_Node('A');
+	SBT_Node* B = SBT_Create_Node('B');
+	SBT_Node* C = SBT_Create_Node('C');
+	SBT_Node* D = SBT_Create_Node('D');
+	SBT_Node* E = SBT_Create_Node('E');
+	SBT_Node* F = SBT_Create_Node('F');
+	SBT_Node* G = SBT_Create_Node('G');
+
+	A->Left = B;
+	B->Left = C;
+	B->Right = D;
+
+	A->Right = E;
+	E->Left = F;
+	E->Right = G;
+
+	printf("Preorder ...\n");
+	SBT_Preorder_Print_Tree(A);
+	printf("\n");
+
+	printf("Inorder ...\n");
+	SBT_Inorder_Print_Tree(A);
+	printf("\n");
+
+	printf("Postorder ...\n");
+	SBT_Postorder_Print_Tree(A);
+	printf("\n");
+
+	SBT_Destroy_Tree(A);
 }
