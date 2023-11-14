@@ -131,6 +131,7 @@
     <ClInclude Include="CircleDoublyLInkedLIst.h" />
     <ClInclude Include="DoublyLinkedList.h" />
     <ClInclude Include="LinkledLIst.h" />
+    <ClInclude Include="Queue.h" />
     <ClInclude Include="Stack.h" />
   </ItemGroup>
   <ItemGroup>
@@ -139,7 +140,9 @@
     <ClCompile Include="DoublyLinkedList.c" />
     <ClCompile Include="LInkedLIst.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="Queeu.c" />
     <ClCompile Include="Stack.c" />
+    <ClCompile Include="Tree.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

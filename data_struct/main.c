@@ -2,6 +2,7 @@
 #include "DoublyLinkedList.h"
 #include "CircleDoublyLInkedLIst.h"
 #include "Caculator.h"
+#include "Queue.h"
 
 void Test_SLL(void);
 void Test_DLL(void);
@@ -9,10 +10,12 @@ void Test_CDLL(void);
 void Test_AS(void);
 void Test_LLS(void);
 void Test_Calcular(void);
+void Test_CQ(void);
+void Test_LQ(void);
 
 int main(void)
 {
-	Test_AS();
+	Test_LQ();
 	return 0;
 }
 
@@ -263,4 +266,63 @@ void Test_Calcular(void)
 
 	Result = Calcuate(Postfix);
 	printf("Calculation Result : %f\n", Result);
+}
+
+void Test_CQ(void)
+{
+	int i;
+	CircularQueue *Queue;
+
+	CQ_Create_Queue(&Queue, 10);
+
+	CQ_Enqueue(Queue, 1);
+	CQ_Enqueue(Queue, 2);
+	CQ_Enqueue(Queue, 3);
+	CQ_Enqueue(Queue, 4);
+
+	for (int i = 0; i < 3; i++)
+	{
+		printf("Dequeue : %d ", CQ_Dequeue(Queue));
+		printf("Front : %d, Rear : %d\n", Queue->Front, Queue->Rear);
+	}
+
+	i = 100;
+	while (CQ_IsFull(Queue) == 0)
+	{
+		CQ_Enqueue(Queue, i++);
+	}
+
+	printf("Capacity : %d, Size : %d\n", Queue->Capacity, CQ_Get_Size(Queue));
+
+	while (CQ_IsEmpty(Queue) == 0)
+	{
+		printf("Dequeue : %d ", CQ_Dequeue(Queue));
+		printf("Front : %d, Rear : %d\n", Queue->Front, Queue->Rear);
+	}
+
+	CQ_Destroy_Queue(Queue);
+}
+
+void Test_LQ(void)
+{
+	LQ_Node* Popped;
+	LinkedQueue* Queue;
+
+	LQ_Create_Queue(&Queue);
+
+	LQ_Enqueue(Queue, LQ_Create_Node("abc"));
+	LQ_Enqueue(Queue, LQ_Create_Node("def"));
+	LQ_Enqueue(Queue, LQ_Create_Node("efg"));
+	LQ_Enqueue(Queue, LQ_Create_Node("hij"));
+	
+	printf("Queue Size : %d\n", LQ_Get_Size(Queue));
+
+	while (LQ_IsEmpty(Queue) == 0)
+	{
+		Popped = LQ_Dequeue(Queue);
+		printf("Dequeue : %s \n", Popped->Data);
+		LQ_Destroy_Node(Popped);
+	}
+
+	LQ_Destroy_Queue(Queue);
 }
