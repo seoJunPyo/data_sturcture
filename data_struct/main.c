@@ -15,10 +15,12 @@ void Test_CQ(void);
 void Test_LQ(void);
 void Test_LCRS_Tree(void);
 void Test_SBT(void);
+void Test_ET(void);
+void Test_DS(void);
 
 int main(void)
 {
-	Test_SBT();
+	Test_DS();
 	return 0;
 }
 
@@ -393,4 +395,45 @@ void Test_SBT(void)
 	printf("\n");
 
 	SBT_Destroy_Tree(A);
+}
+
+void Test_ET(void)
+{
+	ET_Node* Root = NULL;
+	char Postfix[20] = "11 22+ 55*";
+	
+	ET_Build_Expression_Tree(Postfix, &Root);
+
+	printf("Preorder ...\n");
+	ET_Preorder_Print_Tree(Root);
+	printf("\n\n");
+
+	printf("Inorder ...\n");
+	ET_Inorder_Print_Tree(Root);
+	printf("\n\n");
+
+	printf("Postorder ...\n");
+	ET_Postorder_Print_Tree(Root);
+	printf("\n\n");
+
+	printf("Result : %f \n", ET_Evaluate(Root));
+
+	ET_Destory_Tree(Root);
+}
+
+void Test_DS(void)
+{
+	int a = 1, b = 2, c = 3, d = 4;
+	DisjoinSet* Set1 = DS_Make_Set(&a);
+	DisjoinSet* Set2 = DS_Make_Set(&b);
+	DisjoinSet* Set3 = DS_Make_Set(&c);
+	DisjoinSet* Set4 = DS_Make_Set(&d);
+
+	printf("Set1 == Set2 : %d\n", DS_Find_Set(Set1) == DS_Find_Set(Set2));
+
+	DS_Union_Set(Set1, Set3);
+	printf("Set1 == Set3 : %d\n", DS_Find_Set(Set1) == DS_Find_Set(Set3));
+
+	DS_Union_Set(Set3, Set4);
+	printf("Set3 == Set4 : %d\n", DS_Find_Set(Set3) == DS_Find_Set(Set4));
 }
